@@ -20,6 +20,9 @@ public static AbsRoom createRoom()
         case 2:
             return new TrapRoom();
 
+        case 3:
+            return new TreasureRoom("Health potion", "Fire ball", "Tool Sharpener");
+
         default:
             return new EmptyRoom();
     }

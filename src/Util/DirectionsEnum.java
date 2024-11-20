@@ -1,4 +1,4 @@
-package Models;
+package Util;
 
 public enum DirectionsEnum
 {

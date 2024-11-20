@@ -22,6 +22,11 @@ public class Player implements IPlayer
         return health;
     }
 
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
+
     @Override
     public void takeDamage(int damage)
     {
@@ -39,6 +44,37 @@ public class Player implements IPlayer
     {
         inventory.add(item);
     }
+
+    public void useItem(int index)
+    {
+        if (index >= 0 && index < inventory.size()) {
+            String item = inventory.get(index);
+            // Handle item effects
+            switch (item.toLowerCase()) {
+                case "health potion":
+                    System.out.println("You used a Health Potion and restored 20 health!");
+                    setHealth(health + 20); // Restore 20 health
+                    inventory.remove(index);
+                    break;
+                case "fireball":
+                    System.out.println("You used a Fireball! Your next attack deals extra damage.");
+                    attackDamage += 10; // Boost attack damage
+                    inventory.remove(index);
+                    break;
+                case "tool sharpener":
+                    System.out.println("You sharpened your tool! Restored weapon durability.");
+                    attackDamage += 5;
+                    inventory.remove(index);
+                    break;
+                default:
+                    System.out.println("The item has no effect.");
+                    break;
+            }
+        } else {
+            System.out.println("Invalid inventory slot or no items available.");
+        }
+    }
+
 
     public void displayInventory()
     {

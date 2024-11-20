@@ -1,3 +1,4 @@
+package Views;
 
 import Factory.RoomFactory;
 import Models.AbsRoom;
@@ -24,27 +25,11 @@ public class Main {
                 AbsRoom room = RoomFactory.createRoom();
                 room.displayDescription();
                 room.interact(player);
-
-
-
-
-
-
-
-
            }
-
         }else
         {
             System.out.println("Shutting program down..");
         }
-
-
-
-
-
-
-
-
+        scanner.close();
     }
 }
